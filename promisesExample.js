@@ -1,3 +1,37 @@
+// Simplest Example
+
+function addToCart() {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      //Promise = a container, Async behavior = comes from something else
+      res("cart123");
+    }, 1000);
+  });
+}
+
+function makePayment() {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      res(10990);
+    }, 1000);
+  });
+}
+
+function generateInvoice() {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      res("invoice generated");
+    }, 1000);
+  });
+}
+
+addToCart()
+  .then((cart) => makePayment(cart))
+  .then((billAmt) => generateInvoice(billAmt))
+  .catch((err) => console.log(err));
+
+// Another Example
+
 function getUser(userID) {
   return new Promise((res, rej) => {
     setTimeout(() => {
