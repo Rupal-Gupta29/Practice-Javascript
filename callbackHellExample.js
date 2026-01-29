@@ -1,3 +1,25 @@
+// Simplest Example
+
+function addToCart() {}
+
+function makePayment() {}
+
+function generateInvoice() {}
+
+// Dependent on each other
+
+// addToCart();
+// makePayment();
+// generateInvoice();
+
+addToCart(() => {
+  makePayment(() => {
+    generateInvoice();
+  });
+});
+
+// Another Example
+
 function getUser(userID, callback) {
   setTimeout(() => {
     console.log("User fetched");
